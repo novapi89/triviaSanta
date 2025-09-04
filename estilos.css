@@ -1,0 +1,239 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #5e67ef, #9ea4f6, #3c42f4);
+    background-size: 400% 400%;
+    animation: fondoAnimado 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+@keyframes fondoAnimado {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.tablero, .pregunta {
+   
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+}
+#modalTablero{
+    display: none;
+}
+#preguntaActual{
+    width: 90%;
+}
+h1 {
+    font-size: 2rem;
+    color: #222;
+}
+
+h2, h3 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.categorias {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.bloques {
+    flex: 1 1 150px;
+    max-width: 200px;
+    margin: 10px;
+    padding: 15px;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.bloques:hover {
+    transform: scale(1.05);
+    border-color: #ff6f61;
+}
+
+.bloques img {
+    max-width: 200px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button, .btn {
+    background: #ff6f61;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+    background: #e63946;
+}
+
+#timer {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e63946;
+    margin: 15px 0;
+}
+
+/* 🎯 Popup personalizado */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 15px;
+}
+
+#popup .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+#tituloTema {
+    color: blue;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+.bloquePreg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    margin: auto;
+}
+
+.multipleChoice {
+    flex: 1 1 45%;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.multipleChoice.selected {
+    transform: translateY(2px);
+}
+
+/* 🎖 Estilos para el podio */
+.podio-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.podio-item {
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.podio-item:hover {
+    transform: scale(1.05);
+}
+
+.pos-1 { background: gold; height: 150px; }
+.pos-2 { background: silver; height: 120px; }
+.pos-3 { background: #cd7f32; height: 100px; }
+
+.podio-item .nombre {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.podio-item .puntos {
+    font-size: 0.9rem;
+}
+
+/* 🎯 Modal responsive */
+.modal {
+    width: 90%;
+    max-width: 400px;
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.4;
+    font-size: 1rem;
+    padding: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    text-align: center;
+    z-index: 1000;
+}
+.modal#verde { background-color: #48f8cc; color: darkgreen; }
+.modal#azul { background-color: #48c; color: white; }
+.modal#warning { background-color: yellow; color: rgb(200, 174, 0); }
+.modal#error { background-color: rgb(255, 176, 176); color: red; }
+
+/* 📱 Media queries */
+@media (max-width: 768px) {
+    h1 { font-size: 1.8rem; }
+    .bloques { flex: 1 1 120px; max-width: 150px; }
+    .bloques img { max-width: 70px; }
+    button, .btn { font-size: 0.9rem; padding: 10px 18px; }
+    #timer { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.5rem; }
+    .bloques { flex: 1 1 100px; max-width: 120px; padding: 10px; }
+    .bloques img { max-width: 60px; }
+    .multipleChoice { flex: 1 1 100%; }
+    .podio-item { width: 80px; }
+}

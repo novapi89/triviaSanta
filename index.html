@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    
+    <div class="tablero" id="tablero">
+            <h1>TRIVIA DE  LA FERIA</h1>
+            <h2>Elige una Categoria</h2>
+            <div class="categorias">
+                <div class="bloques" data-tema="habitos">
+                    <img src="img/habitos.jpg">
+                    <h4>Habitos Alimenticios</h4>
+                </div>
+                <div class="bloques" data-tema="transmision">
+                    <img src="img/transmision.jpg" >
+                    <h4>Enfer. Transmision Sexual</h4>
+                </div>
+                <div class="bloques" data-tema="neuro">
+                    <img src="img/neuro.jpeg" >
+                    <h4>Enf. Neurodegenerativas</h4>
+                </div>
+                <div class="bloques" data-tema="conservas">
+                     <img src="img/conservas-caseras.jpg">
+                     <h4>Produccion conservas</h4>
+                </div>
+            </div>
+            <button id="comenzar" class="btn">Inciar Juego</button>
+            <button id="resetearLocal" onclick="reiniciarLocalStorage()">Reinicia</button>
+           
+    </div>
+    
+        <div class="tablero" id="modalTablero">
+                <h1>TRIVIA DE LA FERIA</h1>
+                <h3 id="tituloTema">Categoria</h3>
+                <div id="preguntaActual" class="pregunta"></div>
+                <p id="timer"></p>
+                <button class="btn" id="btnResponder" style="display: none;">Responder</button>
+
+                <div id="resultadoFinal"></div>
+        </div>
+
+        <!-- Popup personalizado -->
+<div id="popup">
+  <div class="popup-content">
+    <h3 id="popup-message"></h3>
+    <button onclick="cerrarPopup()">Aceptar</button>
+  </div>
+</div>
+
+    
+    <script src="script1.js">
+            
+    </script>
+
+
+</body>
+</html>
