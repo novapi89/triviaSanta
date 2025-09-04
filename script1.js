@@ -260,3 +260,4 @@ function perderIntento() {
         document.getElementById('popup').style.display = 'none';
     }
 
+
