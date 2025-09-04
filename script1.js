@@ -59,7 +59,7 @@
             // { pregunta: "Pregunta 2", opciones: ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"], correcta: "Opcion 3" }
         ],
         transmision: [
-            { pregunta: "Pregunta 1", opciones: ["opcion 1", "opcion 2", "opcion 3", "opcion 4"], correcta: "Opcion 1" }
+            { pregunta: "Pregunta 1", opciones: ["opcion 1", "opcion 2", "opcion 3", "opcion 4"], correcta: "opcion 1" }
         ],
         neuro: [
             { pregunta: "PREGUNTA 1:\n ¿Qué función cumple la mielina en el sistema nervioso?", opciones: ["Dar color a las fibras nerviosas.", "Almacenar energía para el cuerpo.", "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos.", "Producir hormonas que regulan el movimiento."], correcta: "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos." }
@@ -259,3 +259,4 @@ function perderIntento() {
     function cerrarPopup() {
         document.getElementById('popup').style.display = 'none';
     }
+
