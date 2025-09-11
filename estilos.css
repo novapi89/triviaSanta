@@ -17,12 +17,6 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* @keyframes fondoAnimado {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-} */
-
 .tablero, .pregunta {
    
     background: rgba(255, 255, 255, 0.9);
@@ -91,6 +85,9 @@ h2, h3 {
     border-radius: 12px;
     margin-bottom: 10px;
     width: 100%;
+}
+.bloques.selected{
+    border-color: #ff6f61;
 }
 button {
   padding: 12px 24px;
@@ -316,3 +313,4 @@ button:active {
     .bloques { width: 35%;padding: 0; }
 
 }
+
