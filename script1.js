@@ -1,7 +1,7 @@
 
     let selectedItem = null;
     let temaSeleccionado = null;
-    let categoriasRestantes = ["diabetes", "sifilis", "neuro","conservas"];
+    let categoriasRestantes = ["diabetes", "celiaquia","sifilis", "neuro","conservas"];
     let puntajeTotal = 0;
     let intentosPorCategoria = {};
     let jugador = "";
@@ -143,36 +143,6 @@
         }, 1000);
     }
 
-    // btnResponder.addEventListener('click', () => {
-    //     clearInterval(timerInterval);
-
-    //     const seleccionada = document.querySelector('input[name="respuesta"]:checked');
-    //         if (!seleccionada) {
-    //             //alert('Selecciona una opción');
-    //             mostrarPopup("Seleccione una opcion");
-    //             iniciarTemporizador();
-    //             return;
-    //         }
-
-    //         const respuesta = seleccionada.value;
-    //         const correcta = preguntas[indice].correcta;
-
-    //         if (respuesta === correcta) {
-    //             let puntos = 0;
-    //             if (intentosPreguntas === 0) {
-    //                 puntos = 10; // primer intento
-    //             } else if (intentosPreguntas === 1) {
-    //                 puntos = 5;  // segundo intento (según pediste: 5)
-    //             }
-    //             puntaje += puntos;
-    //             // avanzamos a la siguiente pregunta y reiniciamos intentos para la siguiente
-    //             indice++;
-    //             mostrarPregunta(true);
-    //         } else {
-    //             // incorrecto: contar intento y decidir
-    //             perderIntento();
-    //         }
-    // });
     btnResponder.addEventListener('click', () => {
     clearInterval(timerInterval);
 
@@ -265,22 +235,34 @@ function perderIntento() {
         btnResponder.style.display = 'none';
         preguntaActual.style.display = 'none';
         resultadoFinal.style.display = 'block';
+      
         resultadoFinal.innerHTML = `
             <div class="podio">
                 <h3 style="color:green;font-size: 24px">🎉 ¡Felicitaciones ${jugador}!</h3>
                 <p style="color:red">Puntaje total: ${puntajeTotal} puntos</p>
                 <h4>Intentos por categoría:</h4>
                 <ul style="list-style:none">
-                    ${Object.entries(intentosPorCategoria).map(([cat, intentos]) => `<li>${cat}: ${intentos} intentos</li>`).join('')}
+                    ${Object.entries(intentosPorCategoria).map(([cat, intentos]) => `<li><strong>${cat}</strong>: ${intentos} intentos</li>`).join('')}
                 </ul>
                 <h4>🏆 Podio TOP 3</h4>
-                <div class="podio-container" >
-                    ${podio.map((p, i) => `
-                    <div class="podio-item pos-${i+1}">
-                        <span class="nombre">${p.nombre}</span>
-                        <span class="puntos">${p.puntos} pts</span>
-                    </div>
-                        `).join('')}
+                <div class="podio-container">
+                    ${podio[1] ? `
+                    <div class="podio-item pos-2">
+                        <span class="nombre">${podio[1].nombre}</span>
+                        <span class="puntos">${podio[1].puntos} pts</span>
+                    </div>` : ""}
+                    
+                    ${podio[0] ? `
+                    <div class="podio-item pos-1">
+                        <span class="nombre">${podio[0].nombre}</span>
+                        <span class="puntos">${podio[0].puntos} pts</span>
+                    </div>` : ""}
+                    
+                    ${podio[2] ? `
+                    <div class="podio-item pos-3">
+                        <span class="nombre">${podio[2].nombre}</span>
+                        <span class="puntos">${podio[2].puntos} pts</span>
+                    </div>` : ""}
                 </div>
             </div>
             <button onclick="window.location.href='index.html'" class="btn" style="font-size:18px">Menu principal</button>

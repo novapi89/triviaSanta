@@ -110,22 +110,6 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
-/* 
-button, .btn {
-    background: #ff6f61;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s;
-}
-
-button:hover, .btn:hover {
-    background: #e63946;
-} */
 
 #timer {
     font-weight: bold;
@@ -216,9 +200,9 @@ button:hover, .btn:hover {
     transform: scale(1.05);
 }
 
-.pos-1 { background: gold; height: 150px; }
-.pos-2 { background: silver; height: 120px; }
-.pos-3 { background: #cd7f32; height: 100px; }
+.pos-1 { background: gold; height: 100px; }
+.pos-2 { background: silver; height: 80px; }
+.pos-3 { background: #cd7f32; height: 70px; }
 
 .podio-item .nombre {
     display: block;
@@ -228,6 +212,15 @@ button:hover, .btn:hover {
 
 .podio-item .puntos {
     font-size: 0.9rem;
+}
+.podio ul{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+}
+.podio ul li{
+    margin: 0 5px;
 }
 
 /* 🎯 Modal responsive */
