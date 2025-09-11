@@ -312,3 +312,7 @@ button:active {
     h4{justify-content: center;margin: auto;text-align: center;align-items: center;}
    .multipleChoice{margin: 0;}
 }
+@media(max-width: 375px){
+    .bloques { width: 35%;padding: 0; }
+
+}
