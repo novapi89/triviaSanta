@@ -1,7 +1,7 @@
 
     let selectedItem = null;
     let temaSeleccionado = null;
-    let categoriasRestantes = ["habitos", "transmision", "neuro","conservas"];
+    let categoriasRestantes = ["diabetes", "sifilis", "neuro","conservas"];
     let puntajeTotal = 0;
     let intentosPorCategoria = {};
     let jugador = "";
@@ -54,12 +54,27 @@
 
     // Array de preguntas por tema (ejemplo, reemplazar con las reales)
     const preguntasPorTema = {
-        habitos: [
-            { pregunta: "Pregunta 1", opciones: ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"], correcta: "Opcion 1" }
-            // { pregunta: "Pregunta 2", opciones: ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"], correcta: "Opcion 3" }
+        diabetes: [
+            { pregunta: "PREGUNTA 1- ¿Qué es la Diabetes?", opciones: ["Una enfermedad respiratoria crónica", "Una alegría a los dulces", "Una infección en el páncreas", "Una enfermedad donde el cuerpo no regula bien el azúcar en la sangre"], correcta: "Una enfermedad donde el cuerpo no regula bien el azúcar en la sangre" }
+            // { pregunta: PREGUNTA 2 - ¿Qué es la insulina?", opciones: ["Un tipo de vitamina", "Una hormona que ayuda a que el azúcar entre la célula", "Solo alimentos sin grasa", "Nada que contenga agua"], correcta: "Una hormona que ayuda a que el azúcar entre la célula" },
+            // { pregunta: PREGUNTA 3 - ¿Qué hacer si tienes Diabetes?", opciones: ["Seguir una alimentación saludable hacer ejercicio y controlarse", "Dormir más horas ", "Dejar de comer frutas", "Tomar gaseosa sin azúcar en exceso "], correcta: "Seguir una alimentación saludable hacer ejercicio y controlarse" },
+            // { pregunta: PREGUNTA 4 - ¿Qué diferencia hay entre la Diabetes tipo 1 y tipo 2?", opciones: ["La tipo uno es más grave ", "La tipo 1 es autoinmune y la tipo 2 está relacionada con el estilo de vida", "La tipo 2 le da a los niñosa", "No hay diferencia son lo mismo"], correcta: "La tipo 1 es autoinmune y la tipo 2 está relacionada con el estilo de vida" }
+        
         ],
-        transmision: [
-            { pregunta: "Pregunta 1", opciones: ["opcion 1", "opcion 2", "opcion 3", "opcion 4"], correcta: "opcion 1" }
+         celiaquia: [
+            { pregunta: "PREGUNTA 1- ¿Qué es la celiaquía?", opciones: ["Es una enfermedad mental", "Es una enfermedad que afecta en los huesos", "Es una enfermedad gástrica"], correcta: "Es una enfermedad gástrica" }
+            // { pregunta: PREGUNTA 2 - ¿Qué significan las letras T.A.C.C?", opciones: ["Trigo, avellanas, chocolate y cereales", "Trigo, avena, cebada y centeno", "Tomate, almendras, cebada y centeno"], correcta: "Trigo, avena, cebada y centeno" },
+            // { pregunta: PREGUNTA 3 - Síntomas de la Celiaquía", opciones: ["Dolor de cabeza y resfrío", "Diarrea, nauseas y vomito", "Dolor de muela y dolor muscular"], correcta: "Diarrea, nauseas y vomito" },
+            // { pregunta: PREGUNTA 4 - ¿Qué ocurre en el organismo de un celíaco al consumir gluten?", opciones: ["Respuesta alérgica inmediata", "Sistema inmunológico ataca el intestino delgado", "El gluten no se digiere y se elimina sin causar daño", "Aumenta la producción de insulina en el páncreas"], correcta: "Sistema inmunológico ataca el intestino delgado" }
+        
+        ],
+        sifilis: [
+            { pregunta: "¿Por qué la sífilis se divide en etapas?", opciones: ["Porque así se pueden describir los síntomas y evolución de la enfermedad.", "Porque cada etapa corresponde a una bacteria distinta.", "Porque depende del médico que la diagnostique."], correcta: "Porque así se pueden describir los síntomas y evolución de la enfermedad." },
+            // { pregunta: "¿Cómo se comienza la sífilis secundaria?", opciones: ["Con la aparición de erupciones en la piel y síntomas generales como fiebre", "Con una reacción alérgica a los antibióticos.", "Con síntomas respiratorios graves."], correcta: "Con la aparición de erupciones en la piel y síntomas generales como fiebre." },
+            // { pregunta: "¿Es importante hacer el tratamiento de la sífilis?", opciones: ["Sí, porque sin tratamiento puede causar daños graves en órganos vitales y hasta la muerte.", "No, porque desaparece sola con el tiempo.", "Solo si produce síntomas dolorosos."], correcta: "Sí, porque sin tratamiento puede causar daños graves en órganos vitales y hasta la muerte." },
+
+            // { pregunta: "¿Cuál es el mejor tratamiento para la sífilis?", opciones: ["La penicilina indicada por un médico.", "Los remedios caseros sin control médico.", "Automedicarse con antibióticos de venta libre."], correcta: "La penicilina indicada por un médico." }
+
         ],
         neuro: [
             { pregunta: "PREGUNTA 1:\n ¿Qué función cumple la mielina en el sistema nervioso?", opciones: ["Dar color a las fibras nerviosas.", "Almacenar energía para el cuerpo.", "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos.", "Producir hormonas que regulan el movimiento."], correcta: "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos." }
@@ -99,14 +114,14 @@
         preguntaActual.style.display = 'block';
         preguntaActual.innerHTML = `
             <p><strong>${q.pregunta}</strong></p>
-            <div class="bloquePreg">
-                ${q.opciones.map(op => `
-                    <label class="multipleChoice">
-                        <input type="radio" name="respuesta" value="${op}"> ${op}
-                    </label><br>
+            <div class="bloquePreg option">
+                ${q.opciones.map((op, i) => `
+                    <input type="radio" id="op${indice}-${i}" name="respuesta" value="${op}">
+                    <label for="op${indice}-${i}" class="multipleChoice">${op}</label>
                 `).join('')}
             </div>
         `;
+
 
         btnResponder.style.display = 'inline-block';
         iniciarTemporizador();
@@ -128,36 +143,71 @@
         }, 1000);
     }
 
+    // btnResponder.addEventListener('click', () => {
+    //     clearInterval(timerInterval);
+
+    //     const seleccionada = document.querySelector('input[name="respuesta"]:checked');
+    //         if (!seleccionada) {
+    //             //alert('Selecciona una opción');
+    //             mostrarPopup("Seleccione una opcion");
+    //             iniciarTemporizador();
+    //             return;
+    //         }
+
+    //         const respuesta = seleccionada.value;
+    //         const correcta = preguntas[indice].correcta;
+
+    //         if (respuesta === correcta) {
+    //             let puntos = 0;
+    //             if (intentosPreguntas === 0) {
+    //                 puntos = 10; // primer intento
+    //             } else if (intentosPreguntas === 1) {
+    //                 puntos = 5;  // segundo intento (según pediste: 5)
+    //             }
+    //             puntaje += puntos;
+    //             // avanzamos a la siguiente pregunta y reiniciamos intentos para la siguiente
+    //             indice++;
+    //             mostrarPregunta(true);
+    //         } else {
+    //             // incorrecto: contar intento y decidir
+    //             perderIntento();
+    //         }
+    // });
     btnResponder.addEventListener('click', () => {
-        clearInterval(timerInterval);
+    clearInterval(timerInterval);
 
-        const seleccionada = document.querySelector('input[name="respuesta"]:checked');
-            if (!seleccionada) {
-                //alert('Selecciona una opción');
-                mostrarPopup("Seleccione una opcion");
-                iniciarTemporizador();
-                return;
-            }
+    const seleccionada = document.querySelector('input[name="respuesta"]:checked');
+    if (!seleccionada) {
+        mostrarPopup("Seleccione una opción");
+        iniciarTemporizador();
+        return;
+    }
 
-            const respuesta = seleccionada.value;
-            const correcta = preguntas[indice].correcta;
+    // verificar que existe la pregunta actual
+    if (!preguntas[indice]) {
+        finalizarCategoria();
+        return;
+    }
 
-            if (respuesta === correcta) {
-                let puntos = 0;
-                if (intentosPreguntas === 0) {
-                    puntos = 10; // primer intento
-                } else if (intentosPreguntas === 1) {
-                    puntos = 5;  // segundo intento (según pediste: 5)
-                }
-                puntaje += puntos;
-                // avanzamos a la siguiente pregunta y reiniciamos intentos para la siguiente
-                indice++;
-                mostrarPregunta(true);
-            } else {
-                // incorrecto: contar intento y decidir
-                perderIntento();
-            }
-    });
+    const respuesta = seleccionada.value;
+    const correcta = preguntas[indice].correcta;
+
+    if (respuesta === correcta) {
+        let puntos = 0;
+        if (intentosPreguntas === 0) {
+            puntos = 10; // primer intento
+        } else if (intentosPreguntas === 1) {
+            puntos = 5;  // segundo intento
+        }
+        puntaje += puntos;
+
+        indice++;
+        mostrarPregunta(true); // va a la siguiente
+    } else {
+        perderIntento();
+    }
+});
+
 
 function perderIntento() {
     clearInterval(timerInterval); // por si viene por temporizador
@@ -259,5 +309,33 @@ function perderIntento() {
     function cerrarPopup() {
         document.getElementById('popup').style.display = 'none';
     }
+// document.getElementById("preguntaActual").addEventListener("submit", function(e) {
+//   e.preventDefault();
 
+//   // Obtengo todas las opciones
+//   const options = document.querySelectorAll("input[name='respuesta']");
+//   let selected = false;
 
+//   options.forEach(opt => {
+//     const label = opt.nextElementSibling;
+//     label.classList.remove("correct", "incorrect"); // limpio estilos previos
+
+//     if (opt.checked) {
+//       selected = true;
+//       if (opt.dataset.correct === "true") {
+//         label.classList.add("correct");
+//       } else {
+//         label.classList.add("incorrect");
+//       }
+//     }
+
+//     // mostrar cuál era la correcta
+//     if (opt.dataset.correct === "true") {
+//       label.classList.add("correct");
+//     }
+//   });
+
+//   if (!selected) {
+//     alert("Por favor selecciona una respuesta antes de continuar.");
+//   }
+// });
