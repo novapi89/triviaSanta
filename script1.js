@@ -143,40 +143,51 @@
         }, 1000);
     }
 
+    //desde aca debo hacer 15/09
+
     btnResponder.addEventListener('click', () => {
-    clearInterval(timerInterval);
+        clearInterval(timerInterval);
 
-    const seleccionada = document.querySelector('input[name="respuesta"]:checked');
-    if (!seleccionada) {
-        mostrarPopup("Seleccione una opción");
-        iniciarTemporizador();
-        return;
-    }
-
-    // verificar que existe la pregunta actual
-    if (!preguntas[indice]) {
-        finalizarCategoria();
-        return;
-    }
-
-    const respuesta = seleccionada.value;
-    const correcta = preguntas[indice].correcta;
-
-    if (respuesta === correcta) {
-        let puntos = 0;
-        if (intentosPreguntas === 0) {
-            puntos = 10; // primer intento
-        } else if (intentosPreguntas === 1) {
-            puntos = 5;  // segundo intento
+        const seleccionada = document.querySelector('input[name="respuesta"]:checked');
+        if (!seleccionada) {
+            mostrarPopup("Seleccione una opción");
+            iniciarTemporizador();
+            return;
         }
-        puntaje += puntos;
 
-        indice++;
-        mostrarPregunta(true); // va a la siguiente
-    } else {
-        perderIntento();
-    }
-});
+        // verificar que existe la pregunta actual
+        if (!preguntas[indice]) {
+            finalizarCategoria();
+            return;
+        }
+
+        const respuesta = seleccionada.value;
+        const correcta = preguntas[indice].correcta;
+        const label = seleccionada.nextElementSibling; // el <label> que corresponde
+
+        if (respuesta === correcta) {
+            label.style.backgroundColor = "lightgreen";
+            let puntos = 0;
+            if (intentosPreguntas === 0) {
+                puntos = 10; // primer intento
+            } else if (intentosPreguntas === 1) {
+                puntos = 5;  // segundo intento
+            }
+            puntaje += puntos;
+
+            // esperar 1 segundo antes de pasar a la siguiente
+            setTimeout(() => {
+                indice++;
+                mostrarPregunta(true);
+            }, 1000);
+        } else {
+            label.style.backgroundColor = "red";
+            setTimeout(()=>{
+                perderIntento();
+            }, 800);
+            
+        }
+    });
 
 
 function perderIntento() {
@@ -185,7 +196,7 @@ function perderIntento() {
     intentosTotales++;
 
     if (intentosPreguntas < maxIntentos) {
-       
+
         mostrarPopup(`Incorrecto. Te queda ${maxIntentos - intentosPreguntas} intentos(s)` );
         // re-muestra la misma pregunta **sin** resetear intentosPreguntas
         mostrarPregunta(false);
@@ -193,11 +204,13 @@ function perderIntento() {
         // ya usó los 2 intentos: no suma puntos y pasa a la siguiente pregunta
         mostrarPopup(`😢 Usaste los ${maxIntentos} intentos. No sumas puntos en esta pregunta. Avanzando...`);
         
-        indice++; // avanzar a la siguiente pregunta
-        mostrarPregunta(true);
+        setTimeout(() => {
+            indice++;
+            mostrarPregunta(true);
+        }, 1000);
     }
 }
-
+// desde el lunes 22/09
     function finalizarCategoria() {
         puntajeTotal += puntaje;
         intentosPorCategoria[temaSeleccionado] = intentosTotales;
@@ -224,6 +237,7 @@ function perderIntento() {
         });
     }
 
+        //esto esta puesto en classroom
     function finalizarJuego() {
         guardarEnRanking(jugador, puntajeTotal);
 
@@ -291,33 +305,3 @@ function perderIntento() {
     function cerrarPopup() {
         document.getElementById('popup').style.display = 'none';
     }
-// document.getElementById("preguntaActual").addEventListener("submit", function(e) {
-//   e.preventDefault();
-
-//   // Obtengo todas las opciones
-//   const options = document.querySelectorAll("input[name='respuesta']");
-//   let selected = false;
-
-//   options.forEach(opt => {
-//     const label = opt.nextElementSibling;
-//     label.classList.remove("correct", "incorrect"); // limpio estilos previos
-
-//     if (opt.checked) {
-//       selected = true;
-//       if (opt.dataset.correct === "true") {
-//         label.classList.add("correct");
-//       } else {
-//         label.classList.add("incorrect");
-//       }
-//     }
-
-//     // mostrar cuál era la correcta
-//     if (opt.dataset.correct === "true") {
-//       label.classList.add("correct");
-//     }
-//   });
-
-//   if (!selected) {
-//     alert("Por favor selecciona una respuesta antes de continuar.");
-//   }
-// });
