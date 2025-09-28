@@ -17,11 +17,6 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* @keyframes fondoAnimado {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-} */
 
 .tablero, .pregunta {
    
@@ -95,7 +90,7 @@ h2, h3 {
     margin-bottom: 10px;
     width: 100%;
 }
-button {
+button,.btn-encuesta {
   padding: 12px 24px;
   margin: 10px;
   border: none;
@@ -106,6 +101,7 @@ button {
   background: linear-gradient(45deg, #ff512f, #dd2476);
   cursor: pointer;
   transition: transform 0.2s;
+  text-decoration: none;
 }
 button:hover {
   transform: scale(1.1);
@@ -113,7 +109,10 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
-
+.btn-encuesta{
+    background: linear-gradient(45deg, #232afb, #246bdd);
+    margin: 15px auto
+}
 #timer {
     font-weight: bold;
     font-size: 1.2rem;
@@ -126,7 +125,7 @@ button:active {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 90%;
     height: 100%;
     background: rgba(0,0,0,0.6);
     display: none;
@@ -218,6 +217,7 @@ button:active {
 }
 .podio ul{
     display: flex;
+    flex-wrap: nowrap;
     margin: auto;
     justify-content: center;
 
@@ -247,7 +247,7 @@ button:active {
 .modal#verde { background-color: #48f8cc; color: darkgreen; }
 .modal#azul { background-color: #48c; color: white; }
 .modal#warning { background-color: yellow; color: rgb(200, 174, 0); }
-.modal#error { background-color: rgb(255, 176, 176); color: red; }
+.modal#error { background-color: rgb(255, 176, 176); color: red;}
 
 /* Ocultamos los radios */
 .option input[type="radio"] {
@@ -283,14 +283,14 @@ button:active {
 .correct {
   background: #4caf50 !important;
   color: #fff !important;
-  border-color: #388e3c !important;
+  border-color:  rgb(33, 81, 33) !important;
 }
 
 /* Incorrecto */
 .incorrect {
   background: #f44336 !important;
   color: #fff !important;
-  border-color: #c62828 !important;
+  border-color: rgb(175, 6, 6) !important;
 }
 
 
@@ -313,10 +313,17 @@ button:active {
     .bloques img { max-width: 60px; }   
     .bloques.selected{width:10% ;}
     .multipleChoice { flex: 1 1 100%; margin: 5px;}
+    .podio ul{
+        display: block;
+    }
     .podio-item { width: 80px; }
     .bloquePreg{gap: 0.1px;}
     h4{justify-content: center;margin: auto;text-align: center;align-items: center;}
    .multipleChoice{margin: 0;}
+   .popup{width: 90%;}
+   .popup-content{
+    width: 90%;
+   }
 }
 /* @media(max-width: 375px){
     .bloques { width: 35%;padding: 0; }

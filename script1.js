@@ -1,4 +1,5 @@
 
+
     let selectedItem = null;
     let temaSeleccionado = null;
     let categoriasRestantes = ["diabetes", "celiaquia","sifilis", "neuro","conservas"];
@@ -55,37 +56,38 @@
     // Array de preguntas por tema (ejemplo, reemplazar con las reales)
     const preguntasPorTema = {
         diabetes: [
-            { pregunta: "PREGUNTA 1- ¿Qué es la Diabetes?", opciones: ["Una enfermedad respiratoria crónica", "Una alegría a los dulces", "Una infección en el páncreas", "Una enfermedad donde el cuerpo no regula bien el azúcar en la sangre"], correcta: "Una enfermedad donde el cuerpo no regula bien el azúcar en la sangre" },
-            { pregunta: "PREGUNTA 2 - ¿Qué es la insulina?", opciones: ["Un tipo de vitamina", "Una hormona que ayuda a que el azúcar entre la célula", "Solo alimentos sin grasa", "Nada que contenga agua"], correcta: "Una hormona que ayuda a que el azúcar entre la célula" },
-            { pregunta: "PREGUNTA 3 - ¿Qué hacer si tienes Diabetes?", opciones: ["Seguir una alimentación saludable hacer ejercicio y controlarse", "Dormir más horas ", "Dejar de comer frutas", "Tomar gaseosa sin azúcar en exceso "], correcta: "Seguir una alimentación saludable hacer ejercicio y controlarse" },
-            { pregunta: "PREGUNTA 4 - ¿Qué diferencia hay entre la Diabetes tipo 1 y tipo 2?", opciones: ["La tipo uno es más grave ", "La tipo 1 es autoinmune y la tipo 2 está relacionada con el estilo de vida", "La tipo 2 le da a los niñosa", "No hay diferencia son lo mismo"], correcta: "La tipo 1 es autoinmune y la tipo 2 está relacionada con el estilo de vida" }
+            { pregunta: "PREGUNTA 1- ¿Qué es la Diabetes?", opciones: ["Una enfermedad respiratoria crónica", "Una alegría a los dulces", "Una infección en el páncreas", "Una enfermedad donde el cuerpo no regula bien el azúcar en la sangre"], correcta: "Una enfermedad donde el cuerpo no regula bien el azúcar en la sangre" }
+            // { pregunta: PREGUNTA 2 - ¿Qué es la insulina?", opciones: ["Un tipo de vitamina", "Una hormona que ayuda a que el azúcar entre la célula", "Solo alimentos sin grasa", "Nada que contenga agua"], correcta: "Una hormona que ayuda a que el azúcar entre la célula" },
+            // { pregunta: PREGUNTA 3 - ¿Qué hacer si tienes Diabetes?", opciones: ["Seguir una alimentación saludable hacer ejercicio y controlarse", "Dormir más horas ", "Dejar de comer frutas", "Tomar gaseosa sin azúcar en exceso "], correcta: "Seguir una alimentación saludable hacer ejercicio y controlarse" },
+            // { pregunta: PREGUNTA 4 - ¿Qué diferencia hay entre la Diabetes tipo 1 y tipo 2?", opciones: ["La tipo uno es más grave ", "La tipo 1 es autoinmune y la tipo 2 está relacionada con el estilo de vida", "La tipo 2 le da a los niñosa", "No hay diferencia son lo mismo"], correcta: "La tipo 1 es autoinmune y la tipo 2 está relacionada con el estilo de vida" }
         
         ],
          celiaquia: [
-            { pregunta: "PREGUNTA 1- ¿Qué es la celiaquía?", opciones: ["Es una enfermedad mental", "Es una enfermedad que afecta en los huesos", "Es una enfermedad gástrica"], correcta: "Es una enfermedad gástrica" },
-            { pregunta: "PREGUNTA 2 - ¿Qué significan las letras T.A.C.C?", opciones: ["Trigo, avellanas, chocolate y cereales", "Trigo, avena, cebada y centeno", "Tomate, almendras, cebada y centeno"], correcta: "Trigo, avena, cebada y centeno" },
-            { pregunta: "PREGUNTA 3 - Síntomas de la Celiaquía", opciones: ["Dolor de cabeza y resfrío", "Diarrea, nauseas y vomito", "Dolor de muela y dolor muscular"], correcta: "Diarrea, nauseas y vomito" },
-            { pregunta: "PREGUNTA 4 - ¿Qué ocurre en el organismo de un celíaco al consumir gluten?", opciones: ["Respuesta alérgica inmediata", "Sistema inmunológico ataca el intestino delgado", "El gluten no se digiere y se elimina sin causar daño", "Aumenta la producción de insulina en el páncreas"], correcta: "Sistema inmunológico ataca el intestino delgado" }
+            { pregunta: "PREGUNTA 1- ¿Qué es la celiaquía?", opciones: ["Es una enfermedad mental", "Es una enfermedad que afecta en los huesos", "Es una enfermedad gástrica"], correcta: "Es una enfermedad gástrica" }
+            // { pregunta: PREGUNTA 2 - ¿Qué significan las letras T.A.C.C?", opciones: ["Trigo, avellanas, chocolate y cereales", "Trigo, avena, cebada y centeno", "Tomate, almendras, cebada y centeno"], correcta: "Trigo, avena, cebada y centeno" },
+            // { pregunta: PREGUNTA 3 - Síntomas de la Celiaquía", opciones: ["Dolor de cabeza y resfrío", "Diarrea, nauseas y vomito", "Dolor de muela y dolor muscular"], correcta: "Diarrea, nauseas y vomito" },
+            // { pregunta: PREGUNTA 4 - ¿Qué ocurre en el organismo de un celíaco al consumir gluten?", opciones: ["Respuesta alérgica inmediata", "Sistema inmunológico ataca el intestino delgado", "El gluten no se digiere y se elimina sin causar daño", "Aumenta la producción de insulina en el páncreas"], correcta: "Sistema inmunológico ataca el intestino delgado" }
         
         ],
         sifilis: [
             { pregunta: "¿Por qué la sífilis se divide en etapas?", opciones: ["Porque así se pueden describir los síntomas y evolución de la enfermedad.", "Porque cada etapa corresponde a una bacteria distinta.", "Porque depende del médico que la diagnostique."], correcta: "Porque así se pueden describir los síntomas y evolución de la enfermedad." },
-            { pregunta: "¿Cómo se comienza la sífilis secundaria?", opciones: ["Con la aparición de erupciones en la piel y síntomas generales como fiebre", "Con una reacción alérgica a los antibióticos.", "Con síntomas respiratorios graves."], correcta: "Con la aparición de erupciones en la piel y síntomas generales como fiebre." },
-            { pregunta: "¿Es importante hacer el tratamiento de la sífilis?", opciones: ["Sí, porque sin tratamiento puede causar daños graves en órganos vitales y hasta la muerte.", "No, porque desaparece sola con el tiempo.", "Solo si produce síntomas dolorosos."], correcta: "Sí, porque sin tratamiento puede causar daños graves en órganos vitales y hasta la muerte." },
-            { pregunta: "¿Cuál es el mejor tratamiento para la sífilis?", opciones: ["La penicilina indicada por un médico.", "Los remedios caseros sin control médico.", "Automedicarse con antibióticos de venta libre."], correcta: "La penicilina indicada por un médico." }
+            // { pregunta: "¿Cómo se comienza la sífilis secundaria?", opciones: ["Con la aparición de erupciones en la piel y síntomas generales como fiebre", "Con una reacción alérgica a los antibióticos.", "Con síntomas respiratorios graves."], correcta: "Con la aparición de erupciones en la piel y síntomas generales como fiebre." },
+            // { pregunta: "¿Es importante hacer el tratamiento de la sífilis?", opciones: ["Sí, porque sin tratamiento puede causar daños graves en órganos vitales y hasta la muerte.", "No, porque desaparece sola con el tiempo.", "Solo si produce síntomas dolorosos."], correcta: "Sí, porque sin tratamiento puede causar daños graves en órganos vitales y hasta la muerte." },
+
+            // { pregunta: "¿Cuál es el mejor tratamiento para la sífilis?", opciones: ["La penicilina indicada por un médico.", "Los remedios caseros sin control médico.", "Automedicarse con antibióticos de venta libre."], correcta: "La penicilina indicada por un médico." }
 
         ],
         neuro: [
-            { pregunta: "PREGUNTA 1:\n ¿Qué función cumple la mielina en el sistema nervioso?", opciones: ["Dar color a las fibras nerviosas.", "Almacenar energía para el cuerpo.", "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos.", "Producir hormonas que regulan el movimiento."], correcta: "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos." },
-            { pregunta: "PREGUNTA 2:\n ¿Cuál de los siguientes NO es un síntoma común de la esclerosis múltiple?", opciones: ["Problemas de visión.", "Cansancio extremo.", "Hormigueo en manos y pies.", "Dolor de oído."], correcta: "Dolor de oído." },
-            { pregunta: "PREGUNTA 3:\n¿Qué ayuda a mejorar la calidad de vida de una persona con esclerosis múltiple?", opciones: ["Evitar todo tipo de actividad física.", "Los tratamientos médicos, fisioterapia, apoyo psicológico y hábitos saludables.", "No acudir al médico para no estresarse.", "Mantenerse aislado para prevenir contagios."], correcta: "Los tratamientos médicos, fisioterapia, apoyo psicológico y hábitos saludables." },
-            { pregunta: "PREGUNTA 4:\n¿Qué provoca el daño a la mielina en la esclerosis múltiple?", opciones: ["Que las señales nerviosas se transmitan más rápido.", "Que las señales nerviosas se ralenticen o interrumpan.", "Que los músculos crezcan más rápido.", "Que el sistema inmunitario se fortalezca."], correcta: "Que las señales nerviosas se ralenticen o interrumpan." }
+            { pregunta: "PREGUNTA 1:\n ¿Qué función cumple la mielina en el sistema nervioso?", opciones: ["Dar color a las fibras nerviosas.", "Almacenar energía para el cuerpo.", "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos.", "Producir hormonas que regulan el movimiento."], correcta: "Aislar y proteger las fibras nerviosas, permitiendo la transmisión rápida de impulsos eléctricos." }
+            // { pregunta: "PREGUNTA 2:\n ¿Cuál de los siguientes NO es un síntoma común de la esclerosis múltiple?", opciones: ["Problemas de visión.", "Cansancio extremo.", "Hormigueo en manos y pies.", "Dolor de oído."], correcta: "Dolor de oído." },
+            // { pregunta: "PREGUNTA 3:\n¿Qué ayuda a mejorar la calidad de vida de una persona con esclerosis múltiple?", opciones: ["Evitar todo tipo de actividad física.", "Los tratamientos médicos, fisioterapia, apoyo psicológico y hábitos saludables.", "No acudir al médico para no estresarse.", "Mantenerse aislado para prevenir contagios."], correcta: "Los tratamientos médicos, fisioterapia, apoyo psicológico y hábitos saludables." },
+            //  { pregunta: "PREGUNTA 4:\n¿Qué provoca el daño a la mielina en la esclerosis múltiple?", opciones: ["Que las señales nerviosas se transmitan más rápido.", "Que las señales nerviosas se ralenticen o interrumpan.", "Que los músculos crezcan más rápido.", "Que el sistema inmunitario se fortalezca."], correcta: "Que las señales nerviosas se ralenticen o interrumpan." }
         ],
         conservas: [
-            { pregunta: "PREGUNTA 1: ¿Qué microorganismo puede provocar botulismo en las conservas caseras?", opciones: ["Salmonella enteritidis", "Clostridium botulinum", "Escherichia coli", "Staphylococcus aureus"], correcta: "Clostridium botulinum" },
-            { pregunta: "PREGUNTA 2: ¿Qué concentración de azúcar es necesaria para que actúe como conservante natural en una mermelada?", opciones: ["35%", "50%", "65%", "80%"], correcta: "65%" },
-            { pregunta: "PREGUNTA 3: ¿Cuál de los siguientes defectos en una conserva no impide el consumo, pero desmerece la calidad?", opciones: ["Fermentación con tapa hinchada", "Presencia de botulismo", "Desarrollo de mohos", "Color oscuro por exceso de cocción"], correcta: "Color oscuro por exceso de cocción" },
-            { pregunta: "PREGUNTA 4: ¿Qué método casero se utiliza para esterilizar frascos de conserva?", opciones: ["Secado al sol", "Horneado a 160 °C o hervido en agua", "Congelación ", "Solo lavado con detergente"], correcta: "Horneado a 160 °C o hervido en agua" }
+            { pregunta: "PREGUNTA 1: ¿Qué microorganismo puede provocar botulismo en las conservas caseras?", opciones: ["Salmonella enteritidis", "Clostridium botulinum", "Escherichia coli", "Staphylococcus aureus"], correcta: "Clostridium botulinum" }
+            // { pregunta: "PREGUNTA 2: ¿Qué concentración de azúcar es necesaria para que actúe como conservante natural en una mermelada?", opciones: ["35%", "50%", "65%", "80%"], correcta: "65%" },
+            // { pregunta: "PREGUNTA 3: ¿Cuál de los siguientes defectos en una conserva no impide el consumo, pero desmerece la calidad?", opciones: ["Fermentación con tapa hinchada", "Presencia de botulismo", "Desarrollo de mohos", "Color oscuro por exceso de cocción"], correcta: "Color oscuro por exceso de cocción" },
+            // { pregunta: "PREGUNTA 4: ¿Qué método casero se utiliza para esterilizar frascos de conserva?", opciones: ["Secado al sol", "Horneado a 160 °C o hervido en agua", "Congelación ", "Solo lavado con detergente"], correcta: "Horneado a 160 °C o hervido en agua" }
         ],
     };
 
@@ -277,18 +279,32 @@ function perderIntento() {
                         <span class="puntos">${podio[2].puntos} pts</span>
                     </div>` : ""}
                 </div>
+                <div class="encuesta" style="margin-top:20px;width: 90%">
+                    <h4>📋 Encuesta de satisfacción</h4>
+                    <a href="https://forms.gle/KqSkzLMg7GQA3TPm6" target="_blank" class="btn btn-encuesta">Responder encuesta</a>
+                    <br>
+                </div>
             </div>
-            <button onclick="window.location.href='index.html'" class="btn" style="font-size:18px">Menu principal</button>
+            <button onclick="window.location.href='index.html'" class="btn" style="font-size:16px">Menu principal</button>
         `;
+        // setTimeout(() => {
+        //     mostrarPopup(`
+        //         <h3>📋 Encuesta de satisfacción</h3>
+        //         <p>Queremos conocer tu opinión sobre el juego.</p>
+        //         <a href="https://forms.gle/KqSkzLMg7GQA3TPm6" target="_blank" class="btn">Responder encuesta</a>
+        //         <br><br>
+        //         <img src="img/qr_encuesta.png" alt="QR Encuesta" style="width:150px;height:150px;margin-top:10px;">
+        //     `);
+        // }, 3000);
     }
-
+     
     function guardarEnRanking(nombre, puntos) {
         const ranking = JSON.parse(localStorage.getItem('rankingPreguntas')) || [];
         ranking.push({ nombre, puntos });
         ranking.sort((a, b) => b.puntos - a.puntos);
         localStorage.setItem('rankingPreguntas', JSON.stringify(ranking));
     }
-
+    // clase 23/09 
     function obtenerRanking() {
         return JSON.parse(localStorage.getItem('rankingPreguntas')) || [];
     }
@@ -304,4 +320,3 @@ function perderIntento() {
     function cerrarPopup() {
         document.getElementById('popup').style.display = 'none';
     }
-
